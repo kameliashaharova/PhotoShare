@@ -1,5 +1,5 @@
 
-### A photo management website that will allow users to post images, login/register an account, and view individual photos. I implemented both frontend and backend for this Web App.
+### A photo management website that allows users to login/register an account, post images, and view individual photos. I implemented both frontend and backend for this Web App.
 
 #### Technologies Used:
 Software Stack:
