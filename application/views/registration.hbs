@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>{{title}}</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+  <link rel="stylesheet" type="text/css" href="/public/css/bootstrap.min.css">
+  <link rel="stylesheet" type="text/css" href="/public/css/all.min.css">
+  <link rel="stylesheet" type="text/css" href="public/css/registration.css">
+  <link rel="stylesheet" type="text/css" href="public/css/main.css">
+  <link rel="stylesheet" type="text/css" href="public/css/formstyle.css">
+  <script defer src="/public/javascripts/frontend.js"></script>
+
+</head>
+
+<body>
+
+  <div class="logobox">
+    <h2>Photo Share</h2>
+  </div>
+
+  <nav class="navbar navbar-light" style="background-color: #907163;">
+    <div class="container-fluid">
+      <div class="col-xs-4">
+        {{#if logged}}
+        <a id="logout-button">
+          <class="btn btn-outline-light" style="background-color: #c18408">Log Out</button>
+        </a>
+        {{else}}
+
+        <a href="/login" id="login-button"><button class="btn btn-outline-light"
+            style="background-color: #c18408">Login</button></a>
+        {{/if}}
+
+        <a href="/"><button class="btn btn-outline-light" style="background-color: #c18408">Home</button></a>
+        <a href="/postimage"><button class="btn btn-outline-light" style="background-color: #c18408">Post</button></a>
+
+      </div>
+
+      {{#if logged}}
+      <script>
+        let ele = document.getElementById('logout-button');
+        if (ele) {
+          ele.onclick = (even) => {
+            fetch('/users/logout', {
+              method: "POST"
+            })
+              .then((data) => {
+                location.replace('/');
+              })
+          }
+        }
+      </script>
+      {{/if}}
+      <form class="d-flex">
+        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+        <button class="btn btn-outline-light" type="search" style="background-color: #c18408">Search</button>
+      </form>
+    </div>
+    </div>
+    </div>
+  </nav>
+
+  </nav>
+
+  <div class="registerbox">
+    <fieldset>
+      <h1>
+        Register Form
+      </h1>
+
+      <form class="form-grid-reg" action="/users/register" method="POST" enctype="application/x-www-form-urlencoded">
+
+
+        <form class="form-grid-reg" action="/users/register" method="POST" enctype="application/x-www-form-urlencoded">
+
+
+          <div class="uname" id="lblusername" for="username">Username
+          </div>
+
+          <input id="username" class="text-input reg-input-uname" type="text" placeholder="Username" name="username"
+            required />
+          <br>
+
+          <div class="uemail" id="lblemail" for="email">Email
+          </div>
+
+          <input id="email" class="text-input reg-input-email" type="email" placeholder="Email" name="email" required />
+          <br>
+
+
+          <div class="upassword" id="lblpassword" for="password">Password
+          </div>
+
+          <input id="password" class="text-input reg-input-password" placeholder="Password" type="password" required />
+          <br>
+
+
+          <div class="cpassword" id="lblconfirmPassword" for="confirm password">Confirm Password
+          </div>
+          <br>
+
+          <input id="confirmPassword" class="text-input reg-input-confirmpassword" placeholder="Re-enter password"
+            type="password" required>
+          <br>
+
+          <div class="age" id="lblcheckbox" for="checkbox"></div>
+
+          <input id="lblcheckbox" class="tcheckbox" type="checkbox" required>
+
+          Please accept if you are above 13+ years old.
+          <br>
+
+          <div class="terms" id="lblcheckbox" for="checkbox"></div>
+
+          <input id="lblcheckbox" class="checkbox" type="checkbox" required>
+          I agree to the
+          <a href="#" target="_blank" title="TOS">Terms of Service
+          </a>
+          <br>
+
+          <div class="d-grid gap-2 d-md-block">
+            <button class="btn btn-dark" type="submit">Register</button>
+            <button class="btn btn-dark" type="cancel">Cancel</button>
+          </div>
+    </fieldset>
+
+    <h3>
+      Have an account?
+      <a href="login" class="loginlink">
+        Login Now
+      </a>
+    </h3>
+  </div>
+
+  </div>
+  </div>
+</body>
+
+</html>

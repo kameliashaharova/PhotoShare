@@ -1,0 +1,142 @@
+html{
+    margin: 0;
+    height: 100%;
+  }
+  
+body{
+    font-family: times-new-roman;
+    margin: 0;
+    height: 100%;
+    background: #FFEFD5;
+}
+
+#flash-message {
+  position:fixed;
+  left: 50%;
+  top: 25%;
+  transform: translate(-50%, 0);
+}
+
+#flash-message div {
+  text-align: center;
+}
+
+.logobox{
+  text-align: center;
+  font-size: 40px;
+  line-height: 80px;
+  color: #F0FFFF;
+  background: #A0522D;
+  font-family: fantasy;
+  font-weight: 900;
+}
+.nav-area{
+  width: 100%;
+  background: #A0522D;
+  overflow: auto;
+}
+
+.search-area{
+  margin-top: 10px;
+  float: right;
+  margin-right: 0px;
+}
+.search-area{
+  margin-top: 10px;
+  float: right;
+  margin-right: 0px;
+}
+
+#searchBar{
+  padding: 7px;
+  border: none;
+  font-size: 16px;
+  border-radius: 10px 10px 10px 10px;
+}
+
+.search-area button{
+  position: relative;
+  padding: 10px;
+  border: none;
+  font-size: 16px;
+  float: right;
+  background: #4682B4;
+  color: #F0FFFF;
+  border-radius: 0 15px 15px 0;
+  cursor: pointer;
+}
+
+
+#image-post-image{
+    margin-top: 35px;
+    box-shadow: 0 4px 8px 0 #494848;
+    padding: 16px;
+    background-color: #F0FFFF;
+    float: right;
+}
+
+
+#image-post-title{
+    grid-area: text;
+}
+
+h2{
+    margin-top: 10px;
+    font-size: 22px;
+}
+
+#image-post-author{
+    font: 30px;
+    margin: 10px;
+}
+
+#image-post-desc{
+    margin: 25px;
+}
+
+#image-post-date{
+    margin: 10px;   
+}
+
+#messages{
+    margin: 10px;
+    box-shadow: 0 4px 8px 0 #F0FFFF;
+    padding: 16px;
+    text-align: center;
+    background-color: #F0FFFF;
+    float: left;
+    width: 300px;
+    height: 175px;
+}
+
+#message-list{
+    margin: 90px;
+}
+
+#comment-box-text{
+    position: relative;
+    float: left;
+}
+
+#comment-box-button{
+    padding: 7px;
+    border: none;
+    font-size: 15px;
+    float: right;
+    background: #F0FFFF;
+    color: #F0FFFF;
+    border-radius: 5px 5px 5px 5px;
+    cursor: pointer;
+}
+
+#footer{
+  width: 100%;
+  background-color: #232f3e;
+  grid-area: footer;
+  justify-self: center;
+  position: fixed;
+  margin: 0px 0px;
+  bottom: 20px;
+  color: #ffffff;
+  text-align: center;
+}

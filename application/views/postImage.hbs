@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible">
+  <title>{{title}}</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+  <link rel="stylesheet" type="text/css" href="/public/css/bootstrap.min.css">
+  <link rel="stylesheet" type="text/css" href="/public/css/all.min.css">
+  <link rel="stylesheet" type="text/css" href="/public/css/postimage.css">
+  <link rel="stylesheet" type="text/css" href="/public/css/main.css">
+  <link rel="stylesheet" type="text/css" href="/public/css/formstyle.css">
+  <script defer src="/public/javascripts/frontend.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+
+</head>
+
+</html>
+
+<body>
+
+  <div class="logobox">
+    <h1>Photo Share</h1>
+  </div>
+
+  <nav class="navbar navbar-light" style="background-color: #907163;">
+    <div class="container-fluid">
+      <div class="col-xs-4">
+        {{#if logged}}
+        <a id="logout-button"><button class="btn btn-outline-light" style="background-color: #c18408">Log
+            Out</button></a>
+        {{else}}
+
+        <a href="/login" id="login-button"><button class="btn btn-outline-light"
+            style="background-color: #c18408">Login</button></a>
+        {{/if}}
+
+        <a href="/"><button class="btn btn-outline-light" style="background-color: #c18408">Home</button></a>
+        <a href="/postimage"><button class="btn btn-outline-light" style="background-color: #c18408">Post</button></a>
+
+      </div>
+
+      {{#if logged}}
+      <script>
+        let ele = document.getElementById('logout-button');
+        if (ele) {
+          ele.onclick = (even) => {
+            fetch('/users/logout', {
+              method: "POST"
+            })
+              .then((data) => {
+                location.replace('/');
+              })
+          }
+        }
+      </script>
+      {{/if}}
+      <form class="d-flex">
+        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+        <button class="btn btn-outline-light" style="background-color: #c18408" type="submit">Search</button>
+      </form>
+    </div>
+    </div>
+    </div>
+
+  </nav>
+
+
+  <div class="registerbox">
+    <fieldset>
+      <h2> Post an Image Form </h2>
+
+      <form id="post-image" class="form-grid-postimage" method="POST" enctype="multipart/form-data"
+        action='/posts/createPost'>
+
+
+        <div class="title" for="post-title">Post Title</div>
+        <input id="post-title" placeholder="Post Title here..." type="text" class="text-input post-input-title"
+          name="title" required />
+        <br>
+
+        <div class="description" for="post-description">Post Description</div>
+        <input id="post-description" placeholder="Post Description here..." type="text" class="text-input post-input-description" 
+        name="description" required />
+        <br>
+
+        <div class="uimage"> Upload Image: </div>
+        <input id="img-select" class="tpost" type="file" placeholder="Upload image" name="uploadImage" required />
+        <br>
+
+        <label class="pure-material-checkbox">
+          <input type="checkbox" required>
+          <span>Please accept user policy for image.</span>
+        </label>
+        <br>
+
+        <div class="row">
+          <div class="col-xs-4">
+            <button class="btn btn-dark" type="enter">Submit</button>
+            <button class="btn btn-dark" type="cancel">Cancel</button>
+          </div>
+      </form>
+  </div>
+</body>
+</form>
+</div>
+
+</fieldset>
+<script>
+  axios('/posts/createPost', {
+    data: _body,
+    method: "POST"
+  })
+
+    .then((data) =>
+      console.log(data); alert(data.message); location.replace(data.redirect);
+    )
+  }
+
+  .catch (err => console.log(err));
+
+
+
+  /*
+        const _form = document.getElementById('post-image');
+        _form.onsubmit = function(event) {
+          event.preventDefault();
+          let _body = new FormData(_form);
+
+          fetch('/posts/createPost', {
+            body:_body,
+            method:"POST"
+          })
+          .then((data) => {
+            console.log(data);
+            return data.json();
+          })
+          .then((dataAsObject) =>
+          console.log(dataAsObject);
+          alert(dataAsObject.message);
+          location.replace(dataAsObject.redirect);
+          )}
+          .catch(err => console.log(err)); */
+</script>
+</body>
